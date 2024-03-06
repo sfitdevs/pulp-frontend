@@ -209,5 +209,19 @@ body {
   background-color: var(--brand-color-secondary);
   cursor: pointer;
 }
-
 /* Editor */
+
+/* content-box */
+.content-box{
+  padding-top: 100px;
+  padding-left: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 20px;
+}
+
+.content-box code{
+  padding: 1em;
+  border: solid 2px var(--brand-color-primary);
+  border-radius: 10px;
+}
+/* content-box */

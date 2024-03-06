@@ -1,8 +1,12 @@
+'use client'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useState } from 'react'
 
 function Form() {
     const [pulpid, setpulpid] = useState('')
+
+    const router = useRouter();
 
     const handlePulpid = (e) => {
         setpulpid(e.target.value)
@@ -11,17 +15,14 @@ function Form() {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
 
-        if (pulpid.length < 5) {
+        if (pulpid.length != 5) {
             alert("invalid pulp id");
             return;
         }
         else {
-            let response = await fetch(`https://pulp.deta.dev/api/${pulpid}`);
-            let data = await response.json();
-            console.log(data.content)
+            router.push(`/${pulpid}`)
         }
     }
-
 
     return (
         <>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AceEditor from "react-ace";
 import { useRouter } from "next/navigation";
 
@@ -8,8 +8,11 @@ import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools"
+import ThemeContext from '../context/ThemeContext';
 
-function Editor(props) {
+function Editor() {
+
+    const {theme} = useContext(ThemeContext)
     const [content, setContent] = useState('')
     const router = useRouter();
     const handleonChange = (e) => {
@@ -34,7 +37,7 @@ function Editor(props) {
                 <AceEditor className='ace' style={{
                     fontFamily: 'var(--font-mono)',
                     width: '75%'
-                }} fontSize={16} theme={props.theme} mode="javascript" onChange={handleonChange}
+                }} fontSize={16} theme={theme === 'light_mode'? 'monokai':'github'} mode="javascript" onChange={handleonChange}
                     showPrintMargin={false} />
             </div>
             <div className='buttons'>

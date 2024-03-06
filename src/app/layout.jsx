@@ -1,17 +1,18 @@
-
 import "./global.css";
 import { MaterialSymbol } from "material-symbols";
+import Navbar from '../components/navbar'
+import Header from '../components/header'
+import ThemeContextProvider from  '../context/ThemeContextProvider'
 
-export const metadata = {
-  title: "Pulp",
-  description: "Code Sharing Platform",
-};
+
 
 export default function RootLayout({ children }) {
- 
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <ThemeContextProvider>
+      <html lang="en">
+      <body>
+        {children}</body>
     </html>
+    </ThemeContextProvider>
   );
 }

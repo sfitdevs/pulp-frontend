@@ -1,8 +1,16 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useContext } from "react";
+import ThemeContext from '../context/ThemeContext';
 
-function Header(props) {
 
+
+function Header() {
+  const {theme, setTheme} = useContext(ThemeContext);
+  const toggletheme = ()=>{
+    theme === 'light_mode'? setTheme('dark_mode'): setTheme('light_mode')
+    document.body.className = theme
+  }
   return (
     <>
       <header className='header'>
@@ -13,7 +21,7 @@ function Header(props) {
           <ul>
             <li><span className='material-symbols-outlined'>share</span></li>
           </ul>
-          <span className='material-symbols-outlined theme-icon' onClick={props.toggleTheme}>{props.theme == 'light_mode'?'dark_mode':'light_mode'}</span>
+          <span className='material-symbols-outlined theme-icon' onClick={toggletheme}>{theme}</span>
         </div>
       </header>
     </>
