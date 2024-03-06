@@ -30,6 +30,10 @@ function Editor() {
         localStorage.setItem(key, accessKey);
         router.push(`/${key}`)
     }
+
+    const openPulp =()=>{
+        router.push('/open')
+    }
     return (
         <>
             <div className='editor'>
@@ -41,7 +45,7 @@ function Editor() {
                     showPrintMargin={false} />
             </div>
             <div className='buttons'>
-                <button className='btn'>Open pulp</button>
+                <button className='btn' onClick={openPulp}>Open pulp</button>
                 <button className='btn' onClick={createPulp} >Create pulp</button>
             </div>
         </>

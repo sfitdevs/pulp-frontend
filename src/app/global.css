@@ -203,25 +203,49 @@ body {
   margin-right: 1em;
   margin-top: 1em;
   border-radius: 10px;
+  font-weight: bold;
 }
 
 .btn:hover {
   background-color: var(--brand-color-secondary);
   cursor: pointer;
 }
+
 /* Editor */
 
 /* content-box */
-.content-box{
+.content-box {
   padding-top: 100px;
   padding-left: 0.5em;
   font-family: var(--font-mono);
   font-size: 20px;
 }
 
-.content-box code{
+.content-box pre {
+  font-size: 20px;
+  font-weight: bold;
+  width: 75%;
   padding: 1em;
   border: solid 2px var(--brand-color-primary);
   border-radius: 10px;
 }
+
 /* content-box */
+.form-input{
+  padding-top: 5em;
+  padding-left: 1em;
+}
+
+.id-input {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  text-align: center;
+  font-size: 1.2em;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  font-size: var(--font-mono);
+  border: 2px solid var(--brand-color-primary);
+  border-radius: 5px;
+  font-weight: bold;
+}
