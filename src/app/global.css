@@ -239,6 +239,7 @@ body {
   padding-top: 0.5em;
   font-family: var(--font-mono);
   font-size: 20px;
+  padding-bottom: 1em;
 }
 
 .content-box pre {
@@ -273,6 +274,12 @@ body {
 
 .label-box h3 {
   margin-bottom: -15px;
+}
+
+@media (max-width:540px) {
+  .content-box pre {
+    width: 120%;
+  }
 }
 
 /* content-box */

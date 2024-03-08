@@ -7,12 +7,11 @@ import './global.css'
 
 export default function Home() {
 
-
   return (
     <>
       <Navbar />
-      <Header/>
-      <Editor/>
+      <Header />
+      <Editor />
     </>
   );
 }
