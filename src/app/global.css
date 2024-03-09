@@ -38,6 +38,7 @@ body {
 /* Navbar */
 .navbar {
   align-items: center;
+  z-index: 1000;
   display: flex;
   position: fixed;
   justify-content: space-between;
@@ -106,7 +107,7 @@ body {
 
 /* Header */
 .header {
-  margin-top: 2.99em;
+  margin-top: 3em;
   padding: 1em;
   display: flex;
   position: fixed;
@@ -116,6 +117,7 @@ body {
   backdrop-filter: blur(5px);
   justify-content: flex-end;
   align-items: center;
+  z-index: 1000;
 }
 
 .social-links {
@@ -357,3 +359,31 @@ body {
 }
 
 /* Modal */
+
+/* image-box */
+
+.image {
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+.image-box {
+  border: 2px solid var(--brand-color-primary);
+  border-radius: 10px;
+  min-height: 100px;
+  width: 75%;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+  user-select: none;
+  caret-color: transparent;
+}
+
+.image-box img {
+  height: 100px;
+  width: 100px;
+}
+
+/* image-box */

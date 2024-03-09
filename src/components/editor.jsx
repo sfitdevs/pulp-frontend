@@ -1,8 +1,11 @@
 'use client'
 import React, { useContext, useRef, useState, useEffect } from 'react'
 import AceEditor from "react-ace";
+import Images from "../components/images";
+
 import { useRouter } from "next/navigation";
 import ThemeContext from '../context/ThemeContext';
+import ImageContext from '../context/ImageContext';
 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
@@ -12,6 +15,7 @@ import "ace-builds/src-noconflict/ext-language_tools"
 function Editor() {
 
     const { theme } = useContext(ThemeContext)
+    const { imageID } = useContext(ImageContext)
     const [content, setContent] = useState('')
     const [pulpid, setpulpid] = useState('')
     const [title, setTitle] = useState('')
@@ -94,7 +98,7 @@ function Editor() {
 
         let response = await fetch("https://pulp.deta.eu.org/pulp", {
             method: "POST",
-            body: JSON.stringify({ content, images: [], title }),
+            body: JSON.stringify({ content, images: imageID, title }),
             headers: { "Content-Type": "application/json" }
         });
         let { key, accessKey } = await response.json();
@@ -152,14 +156,7 @@ function Editor() {
                 </div>
             </div>
 
-            <div className='buttons'>
-                <button ref={btnref} className='btn' onClick={openPulp}>Open pulp</button>
-                <button className='btn' onClick={createPulp} >Create pulp</button>
-                <label for="file-upload" class="btn-label">Upload File</label>
-                <input id="file-upload" onChange={fileChanged} style={{
-                    display: "none"
-                }} type="file" />
-            </div>
+
 
             <div ref={modalref} className='modal'>
                 <div className="modal-content">
@@ -178,11 +175,21 @@ function Editor() {
                                         className='id-input' />
                                 })
                             }
-
                             <button type='submit' className='btn'>Submit</button>
                         </form>
                     </div>
                 </div>
+            </div>
+
+            <Images />
+
+            <div className='buttons'>
+                <button ref={btnref} className='btn' onClick={openPulp}>Open pulp</button>
+                <button className='btn' onClick={createPulp} >Create pulp</button>
+                <label for="file-upload" class="btn-label">Upload File</label>
+                <input id="file-upload" accept='' onChange={fileChanged} style={{
+                    display: "none"
+                }} type="file" />
             </div>
         </>
     )
