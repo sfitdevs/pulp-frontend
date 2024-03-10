@@ -51,26 +51,26 @@ function Buttons() {
         fileInput.accept = 'image/*';
         fileInput.onchange = (e) => handleFileUpload(e.target.files);
         fileInput.click();
-      };
-    
-      const handleFileUpload = (files) => {
+    };
+
+    const handleFileUpload = (files) => {
         for (let i = 0; i < files.length; i++) {
-          setImage(prevarray => [...prevarray, files[i]])
+            setImage(prevarray => [...prevarray, files[i]])
         }
         for (const file of files) {
-          const img = new Image();
-    
-          img.onload = function () {
-            const imageElement = this.cloneNode(true);
-            imageContainerRef.current.appendChild(imageElement);
-          };
-          img.src = URL.createObjectURL(file);
+            const img = new Image();
+
+            img.onload = function () {
+                const imageElement = this.cloneNode(true);
+                imageContainerRef.current.appendChild(imageElement);
+            };
+            img.src = URL.createObjectURL(file);
         }
-      };
+    };
 
     return (
         <>
-            <div className='buttons'>
+            <div>
                 <button ref={btnref} className='btn' onClick={openPulp}>Open pulp</button>
                 <button className='btn' onClick={createPulp} >Create pulp</button>
                 <button className='btn' onClick={handleFiles}>Upload File</button>

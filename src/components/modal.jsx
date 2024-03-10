@@ -75,7 +75,7 @@ function Modal() {
      <div ref={modalref} className='modal'>
                 <div className="modal-content">
                     <div className='form-input'>
-                        <h1>Enter your Pulp ID</h1>
+                        <h1>Enter Pulp ID</h1>
                         <form onSubmit={handleOnSubmit}>
                             {
                                 id.map((value, index) => {

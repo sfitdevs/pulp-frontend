@@ -10,8 +10,11 @@ async function getData(id) {
 async function page({ params }) {
 
   let data = await getData(params.pulpid)
+  const pulpContent = data.content == undefined ? "Pulp Not Found" : data.content;
   const titleContent = data.title !== "" ? data.title : "No title specified";
   const language = data.language !== "" ? data.language : "txt";
+
+  const imageArr = data.images == undefined ? [""] : data.images
 
   return (
     <>
@@ -21,18 +24,18 @@ async function page({ params }) {
         <h2>Title: {titleContent}</h2>
 
         <div className='content-box'>
-          <pre><code>{data.content}</code></pre>
+          <pre><code>{pulpContent}</code></pre>
         </div>
         <h3 style={{
           fontFamily: "var(--font-mono)",
           fontSize: "15px"
         }}>Pulp ID: {data.key} | Views: {data.views} | Language: {language}</h3>
-        {data.images.map((id) => {
+        {imageArr.map((id) => {
           return (
             <>
-              <div key={id}>
-                <h3 id='hero'>Images</h3>
-                <img className='image-box' key={id} src={`https://pulp.deta.eu.org/image/${id}`} alt="No images found" />)
+              <div className='image-content' key={id}>
+                <h3>Images: </h3>
+                <img key={id} src={`https://pulp.deta.eu.org/image/${id}`} alt="No Images found" />
               </div>
             </>
           )

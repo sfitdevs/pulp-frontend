@@ -204,10 +204,6 @@ body {
   border-radius: 10px;
 }
 
-.buttons {
-  padding-left: 1em;
-}
-
 .btn {
   background-color: var(--brand-color-primary);
   font-family: var(--font-sans);
@@ -380,6 +376,17 @@ body {
 .image-box img {
   height: 100px;
   width: 100px;
+}
+
+.image-content {
+  padding-top: 1em;
+}
+
+.image-content img {
+  border: 2px solid var(--brand-color-primary);
+  border-radius: 5px;
+  padding: 1em;
+  margin-top: 0.5em;
 }
 
 /* image-box */
