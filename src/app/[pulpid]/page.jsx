@@ -28,7 +28,14 @@ async function page({ params }) {
           fontSize: "15px"
         }}>Pulp ID: {data.key} | Views: {data.views} | Language: {language}</h3>
         {data.images.map((id) => {
-          return <img key={id} src={`https://pulp.deta.eu.org/image/${id}`} alt="" />
+          return (
+            <>
+              <div key={id}>
+                <h3 id='hero'>Images</h3>
+                <img className='image-box' key={id} src={`https://pulp.deta.eu.org/image/${id}`} alt="No images found" />)
+              </div>
+            </>
+          )
         })}
       </div>
     </>

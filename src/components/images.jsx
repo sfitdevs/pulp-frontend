@@ -3,7 +3,7 @@ import ImageContext from '../context/ImageContext';
 
 function Images() {
 
-  const {imageContainerRef } = useContext(ImageContext)
+  const { imageContainerRef } = useContext(ImageContext)
   const [value, setvalue] = useState(true);
 
 
@@ -56,32 +56,13 @@ function Images() {
     };
   }, []);
 
-  const handleUpload = () => {
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = 'image/*';
-    fileInput.onchange = (e) => handleFileUpload(e.target.files);
-    fileInput.click();
-  };
 
-  const handleFileUpload = (files) => {
-    for (const file of files) {
-      const img = new Image();
-
-      img.onload = function () {
-        const imageElement = this.cloneNode(true);
-        imageContainerRef.current.appendChild(imageElement);
-      };
-      img.src = URL.createObjectURL(file);
-    }
-  };
 
   return (
     <>
       <div className='image'>
         <h2>Images</h2>
         <div ref={imageContainerRef} className='image-box' contentEditable={value}></div>
-        <button className='btn' onClick={handleUpload}>Upload Image</button>
       </div>
     </>
   );

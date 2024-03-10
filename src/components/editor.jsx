@@ -4,6 +4,7 @@ import AceEditor from "react-ace";
 
 import ThemeContext from '../context/ThemeContext';
 import ImageContext from '../context/ImageContext';
+import Buttons from '../components/buttons'
 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
@@ -13,7 +14,7 @@ import "ace-builds/src-noconflict/ext-language_tools"
 function Editor() {
 
     const { theme } = useContext(ThemeContext)
-    const { setEditorValue, content, setContent, title, setTitle} = useContext(ImageContext)
+    const { setEditorValue, content, setContent, title, setTitle } = useContext(ImageContext)
 
 
     const handleonChange = (e) => {
@@ -52,7 +53,9 @@ function Editor() {
                 <div className='label-box'>
                     <h3>Title Below: </h3>
                     <input type="text" className='input-label' placeholder='Enter title...' onChange={handleLable} />
+                    <Buttons />
                 </div>
+
             </div>
         </>
     )

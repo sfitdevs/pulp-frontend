@@ -219,16 +219,6 @@ body {
   color: var(--font-color);
 }
 
-.btn-label {
-  font-weight: bold;
-  background-color: var(--brand-color-primary);
-  padding: 0.6em;
-  margin-right: 1em;
-  margin-top: 1em;
-  border-radius: 10px;
-  border: 2px solid black;
-}
-
 .btn:hover {
   background-color: var(--brand-color-secondary);
   cursor: pointer;
@@ -276,6 +266,7 @@ body {
 }
 
 .label-box {
+  justify-items: center;
   margin-left: 1em;
 }
 
@@ -376,7 +367,7 @@ body {
   border: 2px solid var(--brand-color-primary);
   border-radius: 10px;
   min-height: 100px;
-  width: 75%;
+  width: 69%;
   padding: 10px;
   white-space: nowrap;
   overflow: hidden;
