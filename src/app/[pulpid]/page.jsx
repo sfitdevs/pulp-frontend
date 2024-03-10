@@ -9,7 +9,6 @@ async function getData(id) {
 
 async function page({ params }) {
 
-
   let data = await getData(params.pulpid)
   const titleContent = data.title !== "" ? data.title : "No title specified";
   const language = data.language !== "" ? data.language : "txt";
@@ -28,6 +27,9 @@ async function page({ params }) {
           fontFamily: "var(--font-mono)",
           fontSize: "15px"
         }}>Pulp ID: {data.key} | Views: {data.views} | Language: {language}</h3>
+        {data.images.map((id) => {
+          return <img key={id} src={`https://pulp.deta.eu.org/image/${id}`} alt="" />
+        })}
       </div>
     </>
   )

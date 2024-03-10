@@ -244,6 +244,11 @@ body {
   padding-bottom: 1em;
 }
 
+.content-box img {
+  height: 30px;
+  width: 30px;
+}
+
 .content-box pre {
   font-size: 20px;
   font-weight: bold;
@@ -317,7 +322,7 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 100;
+  z-index: 10000;
   padding-top: 100px;
   left: 0;
   top: 0;

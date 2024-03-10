@@ -2,8 +2,8 @@ import React, { useRef, useEffect, useState, useContext } from 'react';
 import ImageContext from '../context/ImageContext';
 
 function Images() {
-  const imageContainerRef = useRef(null);
-  const { imageID, setimageID } = useContext(ImageContext)
+
+  const {imageContainerRef } = useContext(ImageContext)
   const [value, setvalue] = useState(true);
 
 
@@ -24,23 +24,6 @@ function Images() {
       setvalue(true);
     }
   };
-
-  async function submitImage(blobUrl) {
-    const bodyContent = new FormData();
-
-    const response = await fetch(blobUrl);
-    const blob = await response.blob();
-
-    bodyContent.append('file', blob);
-
-    
-      let res = await fetch('https://pulp.deta.eu.org/image', {
-        method: 'POST',
-        body: bodyContent,
-      });
-      let data = await res.json();
-      setimageID(prevArray => [...prevArray, data.id])
-  }
 
   const handleUndo = (e) => {
     if ((e.key === 'z' && e.ctrlKey) || e.key === 'Backspace' || e.key === 'Delete') {
@@ -98,19 +81,7 @@ function Images() {
       <div className='image'>
         <h2>Images</h2>
         <div ref={imageContainerRef} className='image-box' contentEditable={value}></div>
-        <button className='btn' onClick={handleUpload}>
-          Upload Image
-        </button>
-        <button className='btn' onClick={() => {
-          const images = Array.from(imageContainerRef.current.children);
-          for (let index = 0; index < images.length; index++) {
-            const lastAddedImage = images[index];
-            const blobUrl = lastAddedImage.src;
-            submitImage(blobUrl);
-          }
-        }}>
-          Submit Image
-        </button>
+        <button className='btn' onClick={handleUpload}>Upload Image</button>
       </div>
     </>
   );
