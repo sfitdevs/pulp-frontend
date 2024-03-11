@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState } from 'react';
 import Navbar from '../../components/navbar'
 import Header from '../../components/header'
+import ThemeContext from '../../context/ThemeContext';
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-javascript";
@@ -9,7 +10,6 @@ import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools"
 
-import ThemeContext from '../../context/ThemeContext';
 
 function page({ params }) {
 const { theme } = useContext(ThemeContext)

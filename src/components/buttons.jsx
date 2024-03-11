@@ -10,8 +10,9 @@ function Buttons() {
     const createPulp = async () => {
         const images = Array.from(imageContainerRef.current.children);
         const imagesArray = []
+        console.log(image)
         for (let index = 0; index < images.length; index++) {
-            let imageid = await submitImage(image);
+            let imageid = await submitImage(image[index]);
             imagesArray.push(imageid)
         }
 
@@ -22,9 +23,11 @@ function Buttons() {
         });
 
         let { key, accessKey } = await response.json();
-        await navigator.clipboard.writeText(`https://pulp.deta.dev/${key}`);
+        // await navigator.clipboard.writeText(`https://pulp.deta.dev/${key}`);
         localStorage.setItem(key, accessKey);
         router.push(`/${key}`)
+        setImage([])
+        setEditorValue("")
     }
 
     const openPulp = () => {
@@ -49,14 +52,11 @@ function Buttons() {
         const fileInput = document.createElement('input');
         fileInput.type = 'file';
         fileInput.accept = 'image/*';
-        fileInput.onchange = (e) => handleFileUpload(e.target.files);
+        fileInput.onchange = (e) => handleImagesUpload(e.target.files);
         fileInput.click();
     };
 
-    const handleFileUpload = (files) => {
-        for (let i = 0; i < files.length; i++) {
-            setImage(prevarray => [...prevarray, files[i]])
-        }
+    const handleImagesUpload = (files) => {
         for (const file of files) {
             const img = new Image();
 
@@ -66,6 +66,8 @@ function Buttons() {
             };
             img.src = URL.createObjectURL(file);
         }
+        setImage(prevarray => [...prevarray, files[0]])
+
     };
 
     return (

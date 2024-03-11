@@ -19,19 +19,16 @@ const ImageContextProvider = ({ children }) => {
         reader.readAsText(file);
     }
 
-    async function submitImage(files) {
+    async function submitImage(file) {
         const formData = new FormData();
 
-        for (const file of files) {
-            formData.append('file', file);
-        }
+        formData.append('file', file);
 
         let res = await fetch('https://pulp.deta.eu.org/image/', {
             method: 'POST',
             body: formData,
         });
         let data = await res.json();
-        console.log(data)
         return data.id
     }
 
