@@ -1,48 +1,61 @@
 'use client'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import AceEditor from "react-ace";
-import { useRouter } from "next/navigation";
 
+import ThemeContext from '../context/ThemeContext';
+import ImageContext from '../context/ImageContext';
+import Buttons from '../components/buttons'
 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools"
-import ThemeContext from '../context/ThemeContext';
 
 function Editor() {
 
-    const {theme} = useContext(ThemeContext)
-    const [content, setContent] = useState('')
-    const router = useRouter();
+    const { theme } = useContext(ThemeContext)
+    const { setEditorValue, content, setContent, title, setTitle } = useContext(ImageContext)
+
+
     const handleonChange = (e) => {
         setContent(e.valueOf())
     }
-
-    const createPulp = async () => {
-        let response = await fetch("https://pulp.deta.eu.org/pulp", {
-            method: "POST",
-            body: JSON.stringify({ content, images: [] }),
-            headers: { "Content-Type": "application/json" }
-        });
-        let { key, accessKey } = await response.json();
-        await navigator.clipboard.writeText(`https://pulp.deta.dev/${key}`);
-        localStorage.setItem(key, accessKey);
-        router.push(`/${key}`)
+    const handleLable = (e) => {
+        setTitle(e.target.value)
     }
+
+    document.body.ondragover = (event) => { event.preventDefault(); };
+    document.body.ondrop = (event) => {
+        event.preventDefault();
+        if (event.dataTransfer.items && event.dataTransfer.items[0].kind === "file") {
+            setEditorValue(event.dataTransfer.items[0].getAsFile());
+        } else {
+            setEditorValue(event.dataTransfer.files[0]);
+        }
+    };
+
     return (
         <>
+            <h3 id='hero'>Enter your text below:</h3>
             <div className='editor'>
-                <h3>Enter your text below:</h3>
-                <AceEditor className='ace' style={{
-                    fontFamily: 'var(--font-mono)',
-                    width: '75%'
-                }} fontSize={16} theme={theme === 'light_mode'? 'monokai':'github'} mode="javascript" onChange={handleonChange}
-                    showPrintMargin={false} />
-            </div>
-            <div className='buttons'>
-                <button className='btn'>Open pulp</button>
-                <button className='btn' onClick={createPulp} >Create pulp</button>
+                <AceEditor className='ace'
+                    style={{
+                        fontFamily: 'var(--font-mono)',
+                        width: '75%'
+                    }}
+                    fontSize={16}
+                    theme={theme === 'light_mode' ? 'monokai' : 'github'}
+                    mode="javascript"
+                    onChange={handleonChange}
+                    showPrintMargin={false}
+                    value={content} />
+
+                <div className='label-box'>
+                    <h3>Title Below: </h3>
+                    <input type="text" className='input-label' placeholder='Enter title...' onChange={handleLable} />
+                    <Buttons />
+                </div>
+
             </div>
         </>
     )

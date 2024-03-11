@@ -13,7 +13,7 @@ function Nav() {
           <ul>
             <li><Link href="/"><span className='material-symbols-outlined'>home</span>Home</Link></li>
             <li><Link href="/about"><span className='material-symbols-outlined'>person</span>About</Link></li>
-            <li><Link href="/connect"><span className='material-symbols-outlined'>person</span>Connect</Link></li>
+            <li><Link href="/connect"><span className='material-symbols-outlined'>link</span>Connect</Link></li>
           </ul>
         </div>
       </nav>
