@@ -14,14 +14,19 @@ import "ace-builds/src-noconflict/ext-language_tools"
 function Editor() {
 
     const { theme } = useContext(ThemeContext)
-    const { setEditorValue, content, setContent, title, setTitle } = useContext(ImageContext)
+    const { setEditorValue, content, setContent, setTitle, setPassword } = useContext(ImageContext)
 
 
     const handleonChange = (e) => {
         setContent(e.valueOf())
     }
+
     const handleLable = (e) => {
         setTitle(e.target.value)
+    }
+
+    const handlepassword = (e) => {
+        setPassword(e.target.value)
     }
 
     document.body.ondragover = (event) => { event.preventDefault(); };
@@ -53,6 +58,8 @@ function Editor() {
                 <div className='label-box'>
                     <h3>Title Below: </h3>
                     <input type="text" className='input-label' placeholder='Enter title...' onChange={handleLable} />
+                    <h3>Enter password: </h3>
+                    <input type="text" className='input-label' placeholder='Enter title...' onChange={handlepassword} />
                     <Buttons />
                 </div>
 

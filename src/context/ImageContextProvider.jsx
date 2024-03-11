@@ -6,6 +6,7 @@ import ImageContext from "./ImageContext";
 const ImageContextProvider = ({ children }) => {
     const [content, setContent] = useState('')
     const [title, setTitle] = useState('')
+    const [password, setPassword] = useState('')
     const [image, setImage] = useState([])
 
     const modalref = useRef()
@@ -33,7 +34,7 @@ const ImageContextProvider = ({ children }) => {
     }
 
     return (
-        <ImageContext.Provider value={{ image, setImage, title, setTitle, modalref, setEditorValue, inputRefs, content, setContent, submitImage, imageContainerRef }}>
+        <ImageContext.Provider value={{ password, setPassword, image, setImage, title, setTitle, modalref, setEditorValue, inputRefs, content, setContent, submitImage, imageContainerRef }}>
             {children}
         </ImageContext.Provider>
     )

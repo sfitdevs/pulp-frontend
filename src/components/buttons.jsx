@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import ImageContext from '../context/ImageContext';
 
 function Buttons() {
-    const { image, setImage, inputRefs, modalref, setEditorValue, submitImage, imageContainerRef, content, title } = useContext(ImageContext)
+    const { password, image, setImage, inputRefs, modalref, setEditorValue, submitImage, imageContainerRef, content, title } = useContext(ImageContext)
     const router = useRouter();
     const btnref = useRef();
 
@@ -18,7 +18,7 @@ function Buttons() {
 
         let response = await fetch("https://pulp.deta.eu.org/pulp", {
             method: "POST",
-            body: JSON.stringify({ content, images: imagesArray, title }),
+            body: JSON.stringify({ content, images: imagesArray, title, password}),
             headers: { "Content-Type": "application/json" }
         });
 

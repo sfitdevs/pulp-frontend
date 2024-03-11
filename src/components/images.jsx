@@ -6,8 +6,6 @@ function Images() {
   const { imageContainerRef, image, setImage } = useContext(ImageContext)
   const [value, setvalue] = useState(true);
 
-
-
   const handleclick = () => {
     setvalue(true);
   };
@@ -20,8 +18,6 @@ function Images() {
       container.removeEventListener('click', handleclick);
     };
   }, []);
-
-
 
   return (
     <>
