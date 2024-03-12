@@ -15,7 +15,7 @@
 
 #hero {
   padding-top: 6em;
-  padding-left: 1em;
+  padding-left: 3em;
 }
 
 .light_mode {
@@ -191,7 +191,7 @@ body {
 
 /* Editor */
 .editor {
-  padding-left: 1em;
+  padding-left: 3em;
   display: flex;
 }
 
@@ -213,6 +213,12 @@ body {
   border-radius: 10px;
   font-weight: bold;
   color: var(--font-color);
+  border: 2px solid var(--font-color);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
 }
 
 .btn:hover {
@@ -250,6 +256,10 @@ body {
   font-family: var(--font-sans);
 }
 
+.open h3 {
+  padding-top: 1.5em;
+}
+
 .input-label {
   font-size: medium;
   font-family: var(--font-sans);
@@ -263,7 +273,7 @@ body {
 
 .label-box {
   justify-items: center;
-  margin-left: 1em;
+  margin-left: 2em;
 }
 
 .label-box h3 {
@@ -355,14 +365,14 @@ body {
 /* image-box */
 
 .image {
-  margin-left: 1em;
+  margin-left: 3em;
   margin-top: 1em;
 }
 
 .image-box {
   border: 2px solid var(--brand-color-primary);
   border-radius: 10px;
-  min-height: 100px;
+  min-height: 200px;
   width: 69%;
   padding: 10px;
   white-space: nowrap;
@@ -374,18 +384,18 @@ body {
 }
 
 .image-box img {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
 }
 
 .image-content {
   padding-top: 1em;
-}
-
-.image-content img {
+  height: 200px;
+  width: 200px;
+  padding: 0.2em;
+  margin-left: 1em;
   border: 2px solid var(--brand-color-primary);
   border-radius: 5px;
-  padding: 1em;
   margin-top: 0.5em;
 }
 

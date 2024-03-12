@@ -41,7 +41,7 @@ function Editor() {
 
     return (
         <>
-            <h3 id='hero'>Enter your text below:</h3>
+            <h3 id='hero'>Enter text below:</h3>
             <div className='editor'>
                 <AceEditor className='ace'
                     style={{
@@ -58,8 +58,12 @@ function Editor() {
                 <div className='label-box'>
                     <h3>Title Below: </h3>
                     <input type="text" className='input-label' placeholder='Enter title...' onChange={handleLable} />
-                    <h3>Enter password: </h3>
-                    <input type="text" className='input-label' placeholder='Enter title...' onChange={handlepassword} />
+                    <h3 style={{
+                        paddingTop: '1em'
+                    }}>Enter password: </h3>
+                    <input style={{
+                        marginBottom: '1em'
+                    }} type="text" className='input-label' placeholder='Enter title...' onChange={handlepassword} />
                     <Buttons />
                 </div>
 

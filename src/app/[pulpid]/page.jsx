@@ -52,13 +52,11 @@ const imageArr = data.images == undefined ? [""] : data.images
           fontFamily: "var(--font-mono)",
           fontSize: "15px"
         }}>Pulp ID: {data.key} | Views: {data.views} | Language: {language}</h3>
+          <h3>Images: </h3>
         {imageArr.map((id) => {
           return (
             <>
-              <div className='image-content' key={id}>
-                <h3>Images: </h3>
-                <img key={id} src={`https://pulp.deta.eu.org/image/${id}`} alt="No Images found" />
-              </div>
+                <img className='image-content' key={id} src={`https://pulp.deta.eu.org/image/${id}`} alt="No Images found" />
             </>
           )
         })}

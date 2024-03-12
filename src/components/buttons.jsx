@@ -72,7 +72,7 @@ function Buttons() {
 
     return (
         <>
-            <div>
+            <div className='buttons'>
                 <button ref={btnref} className='btn' onClick={openPulp}>Open pulp</button>
                 <button className='btn' onClick={createPulp} >Create pulp</button>
                 <button className='btn' onClick={handleFiles}>Upload File</button>

@@ -18,11 +18,11 @@ function Images() {
       container.removeEventListener('click', handleclick);
     };
   }, []);
-
+  
   return (
     <>
       <div className='image'>
-        <h2>Images</h2>
+    <h2>Images</h2>
         <div ref={imageContainerRef} className='image-box' contentEditable={value}></div>
       </div>
     </>
