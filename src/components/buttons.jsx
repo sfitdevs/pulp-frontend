@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import ImageContext from '../context/ImageContext';
 
 function Buttons() {
-    const { password, image, setImage, inputRefs, modalref, setEditorValue, submitImage, imageContainerRef, content, title } = useContext(ImageContext)
+    const {data, setData, password, image, setImage, inputRefs, modalref, setEditorValue, submitImage, imageContainerRef, content, title } = useContext(ImageContext)
     const router = useRouter();
     const btnref = useRef();
 
@@ -23,14 +23,13 @@ function Buttons() {
         });
 
         let { key, accessKey } = await response.json();
-        // await navigator.clipboard.writeText(`https://pulp.deta.dev/${key}`);
         localStorage.setItem(key, accessKey);
         router.push(`/${key}`)
         setImage([])
         setEditorValue("")
     }
-
-    const openPulp = () => {
+    
+    const openPulp = async () => {
         modalref.current.style.display = "block";
         inputRefs.current[0].focus();
     }
