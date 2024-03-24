@@ -76,7 +76,6 @@ function Buttons() {
                 <button className='btn' onClick={createPulp} >Create pulp</button>
                 <button className='btn' onClick={handleFiles}>Upload File</button>
                 <button className='btn' onClick={handleUpload}>Upload Image</button>
-
             </div>
         </>
     )

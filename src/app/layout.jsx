@@ -8,11 +8,11 @@ export default function RootLayout({ children }) {
     <>
       <ThemeContextProvider>
         <ImageContextProvider>
-        <html lang="en">
-          <body>
-            {children}
-          </body>
-        </html>
+          <html lang="en">
+            <body className="light_mode">
+              {children}
+            </body>
+          </html>
         </ImageContextProvider>
       </ThemeContextProvider>
     </>

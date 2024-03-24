@@ -21,7 +21,6 @@
 .light_mode {
   --background-color: #fffaff;
   --font-color: #1f1f1f;
-
 }
 
 .dark_mode {
@@ -131,9 +130,10 @@ body {
 
 .social-links li {
   cursor: pointer;
+
 }
 
-.social-links li:hover {
+.social-links li span:hover {
   color: var(--brand-color-primary);
 
 }
@@ -141,12 +141,11 @@ body {
 .social-links ul {
   display: flex;
   text-decoration: none;
-  padding: 1.5em;
   list-style: none;
 }
 
-.social-links li {
-  margin-left: 1.2em;
+.social-links li span {
+  padding-left: 1em;
 }
 
 .theme-icon {
@@ -216,14 +215,14 @@ body {
   border: 2px solid var(--font-color);
 }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-}
 
 .btn:hover {
   background-color: var(--brand-color-secondary);
   cursor: pointer;
+}
+
+.buttons {
+  padding-left: 3em;
 }
 
 /* Editor */
@@ -274,6 +273,7 @@ body {
 .label-box {
   justify-items: center;
   margin-left: 2em;
+  margin-right: 2em;
 }
 
 .label-box h3 {
@@ -284,8 +284,7 @@ body {
   .content-box pre {
     width: 120%;
   }
-}
-
+} 
 /* content-box */
 
 /* Input boxes */
@@ -364,17 +363,11 @@ body {
 
 /* image-box */
 
-.image {
-  margin-left: 3em;
-  margin-top: 1em;
-}
-
 .image-box {
   border: 2px solid var(--brand-color-primary);
   border-radius: 10px;
-  min-height: 200px;
-  width: 69%;
-  padding: 10px;
+  min-height: 100px;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -4,15 +4,14 @@ import AceEditor from "react-ace";
 
 import ThemeContext from '../context/ThemeContext';
 import ImageContext from '../context/ImageContext';
-import Buttons from '../components/buttons'
-
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools"
+import Images from './images';
+
 
 function Editor() {
-
     const { theme } = useContext(ThemeContext)
     const { setEditorValue, content, setContent, setTitle, setPassword } = useContext(ImageContext)
 
@@ -28,16 +27,6 @@ function Editor() {
     const handlepassword = (e) => {
         setPassword(e.target.value)
     }
-
-    document.body.ondragover = (event) => { event.preventDefault(); };
-    document.body.ondrop = (event) => {
-        event.preventDefault();
-        if (event.dataTransfer.items && event.dataTransfer.items[0].kind === "file") {
-            setEditorValue(event.dataTransfer.items[0].getAsFile());
-        } else {
-            setEditorValue(event.dataTransfer.files[0]);
-        }
-    };
 
     return (
         <>
@@ -64,9 +53,8 @@ function Editor() {
                     <input style={{
                         marginBottom: '1em'
                     }} type="text" className='input-label' placeholder='Enter title...' onChange={handlepassword} />
-                    <Buttons />
+                    <Images />
                 </div>
-
             </div>
         </>
     )
