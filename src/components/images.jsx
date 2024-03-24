@@ -3,7 +3,7 @@ import ImageContext from '../context/ImageContext';
 
 function Images() {
 
-  const { imageContainerRef, image, setImage } = useContext(ImageContext)
+  const { imageContainerRef} = useContext(ImageContext)
   const [value, setvalue] = useState(true);
 
   const handleclick = () => {

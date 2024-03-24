@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 
 import {useRouter} from 'next/navigation';
 import ImageContext from '../context/ImageContext';

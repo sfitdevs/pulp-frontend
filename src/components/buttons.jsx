@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import ImageContext from '../context/ImageContext';
 
 function Buttons() {
-    const {data, setData, password, image, setImage, inputRefs, modalref, setEditorValue, submitImage, imageContainerRef, content, title } = useContext(ImageContext)
+    const {password, image, setImage, inputRefs, modalref, setEditorValue, submitImage, imageContainerRef, content, title } = useContext(ImageContext)
     const router = useRouter();
     const btnref = useRef();
 

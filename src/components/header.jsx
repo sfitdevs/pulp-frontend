@@ -1,7 +1,8 @@
 'use client'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useContext } from "react";
 import ThemeContext from '../context/ThemeContext'
+import ImageContext from '../context/ImageContext';
 import { useRouter } from 'next/navigation';
 import { io } from 'socket.io-client';
 
@@ -9,7 +10,6 @@ import { io } from 'socket.io-client';
 function Header() {
   const { theme, setTheme } = useContext(ThemeContext);
   const router = useRouter();
-  const [socket, setsocket] = useState(undefined);
 
   const toggletheme = () => {
     theme === 'light_mode' ? setTheme('dark_mode') : setTheme('light_mode')
@@ -17,8 +17,7 @@ function Header() {
   }
 
   const startLiveShare = () => {
-    const socket = io("http://localhost:8000")
-    setsocket(socket);
+    router.push('/liveshare')
   }
 
   return (

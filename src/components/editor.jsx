@@ -13,7 +13,7 @@ import Images from './images';
 
 function Editor() {
     const { theme } = useContext(ThemeContext)
-    const { setEditorValue, content, setContent, setTitle, setPassword } = useContext(ImageContext)
+    const {content, setContent, setTitle, setPassword } = useContext(ImageContext)
 
 
     const handleonChange = (e) => {
